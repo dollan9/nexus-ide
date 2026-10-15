@@ -1,0 +1,7 @@
+# Krav for templates/mcp-server-py — installera i en egen venv:
+#   python -m venv .venv && .venv/Scripts/activate && pip install -r requirements.txt
+#
+# Pinnen ar avsiktlig: mallen verifierades pa denna maskinen med mcp 2.3.0
+# (Python 3.11.9), dar FastMCP hetar MCPServer. Vill du kor den alda
+# FastMCP-API:t: byt till `mcp>=1.2,<2` — server.py klarar bada.
+mcp>=2.3,<3

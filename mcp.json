@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "servers": [
+    {
+      "id": "nexus-filesystem",
+      "transport": "stdio",
+      "enabled": true,
+      "label": "Filer — NEXUS egen server (offline, jail + godkännande för skrivning)",
+      "builtin": true,
+      "command": "${NODE_EXECUTABLE}",
+      "args": [
+        "${NEXUS_REPO_ROOT}/scripts/mcp-servers/nexus-filesystem.mjs",
+        "--root",
+        "${NEXUS_WORKSPACE_ROOT}"
+      ]
+    },
+    {
+      "id": "nexus-git",
+      "transport": "stdio",
+      "enabled": true,
+      "label": "Git — status, diff, log, show, grenar, stage, commit",
+      "builtin": true,
+      "command": "${NODE_EXECUTABLE}",
+      "args": [
+        "${NEXUS_REPO_ROOT}/scripts/mcp-servers/nexus-git.mjs",
+        "--repo",
+        "${NEXUS_WORKSPACE_ROOT}"
+      ]
+    },
+    {
+      "id": "nexus-terminal",
+      "transport": "stdio",
+      "enabled": true,
+      "label": "Terminal — kör skalkommandon (farliga kommandon kräver godkännande)",
+      "builtin": true,
+      "command": "${NODE_EXECUTABLE}",
+      "args": [
+        "${NEXUS_REPO_ROOT}/scripts/mcp-servers/nexus-terminal.mjs",
+        "--root",
+        "${NEXUS_WORKSPACE_ROOT}"
+      ]
+    },
+    {
+      "id": "nexus-web",
+      "transport": "stdio",
+      "enabled": true,
+      "label": "Web — hämta URL utan nyckel (search_web kräver BRAVE_API_KEY i .env)",
+      "builtin": true,
+      "command": "${NODE_EXECUTABLE}",
+      "args": [
+        "${NEXUS_REPO_ROOT}/scripts/mcp-servers/nexus-web.mjs"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      }
+    },
+    {
+      "id": "nexus-filesystem-official",
+      "transport": "stdio",
+      "enabled": false,
+      "label": "Filer — officiella @modelcontextprotocol/server-filesystem (valfri, kräver nätverk)",
+      "builtin": true,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${NEXUS_WORKSPACE_ROOT}"
+      ]
+    }
+  ]
+}

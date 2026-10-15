@@ -1,0 +1,17 @@
+{
+  // Mall-paketet byggs till CommonJS (dist/index.js) precis som alla paket i
+  // CONVENTIONS.md. module/moduleResolution ar NodeNext for att
+  // @modelcontextprotocol/sdk endast exponerar sina dotter-vagar
+  // (/server/mcp.js) via exports-kartan — "Node" (node10) klarar dem inte.
+  // Eftersom package.json saknar "type" skins CJS ut.
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "test"]
+}

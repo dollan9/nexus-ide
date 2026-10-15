@@ -1,0 +1,35 @@
+{
+  "name": "nexus-mcp-template-ts",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Mall för användarens egna MCP-servrar i TypeScript (stdio, ett demo-verktyg).",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "nexus-mcp-template-ts": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "pretest": "tsc -p tsconfig.json",
+    "test": "node --test test/server.test.mjs",
+    "start": "node dist/index.js",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.0",
+    "@types/node": "^24.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

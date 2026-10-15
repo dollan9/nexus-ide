@@ -1,0 +1,23 @@
+{
+  "name": "@nexus/voice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Röst in/ut mot ai-service: Whisper STT + Piper/edge-tts TTS, med mikrofonmatris i webbläsaren.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@nexus/protocol": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.0",
+    "vitest": "^3.2.4",
+    "@types/node": "^24.0.0"
+  }
+}

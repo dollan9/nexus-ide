@@ -1,0 +1,30 @@
+{
+  "name": "@nexus/host",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IDE-host: binder ihop kärnan till metodtabellen och exponerar den över Electron IPC eller WebSocket.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@nexus/core": "workspace:*",
+    "@nexus/protocol": "workspace:*",
+    "@nexus/providers": "workspace:*",
+    "@nexus/mcp-client": "workspace:*",
+    "@nexus/voice": "workspace:*",
+    "@nexus/vision": "workspace:*",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.0",
+    "vitest": "^3.2.4",
+    "@types/node": "^24.0.0",
+    "@types/ws": "^8.18.0"
+  }
+}

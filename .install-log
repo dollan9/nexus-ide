@@ -1,0 +1,33 @@
+Scope: all 13 workspace projects
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 26, reused 0, downloaded 0, added 0
+Progress: resolved 361, reused 0, downloaded 0, added 0
+Progress: resolved 525, reused 0, downloaded 0, added 0
+ WARN  4 deprecated subdependencies found: boolean@3.2.0, glob@7.2.3, inflight@1.0.6, rimraf@2.6.3
+
+Packages: +493
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 535, reused 0, downloaded 0, added 0
+Progress: resolved 535, reused 0, downloaded 76, added 14
+Progress: resolved 535, reused 0, downloaded 120, added 20
+Progress: resolved 535, reused 0, downloaded 198, added 31
+Progress: resolved 535, reused 0, downloaded 278, added 41
+Progress: resolved 535, reused 0, downloaded 361, added 53
+Progress: resolved 535, reused 0, downloaded 480, added 77
+Progress: resolved 535, reused 0, downloaded 482, added 175
+Progress: resolved 535, reused 0, downloaded 482, added 249
+Progress: resolved 535, reused 0, downloaded 484, added 302
+Progress: resolved 535, reused 0, downloaded 485, added 414
+Progress: resolved 535, reused 0, downloaded 485, added 479
+Progress: resolved 535, reused 0, downloaded 485, added 492
+Progress: resolved 535, reused 0, downloaded 485, added 493
+Progress: resolved 535, reused 0, downloaded 485, added 493, done
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: electron-winstaller@5.4.0, esbuild@0.25.12.         │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 19.5s using pnpm v10.26.0
+EXIT=0

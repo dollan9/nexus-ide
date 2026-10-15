@@ -1,0 +1,30 @@
+{
+  "name": "nexus-ide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEXUS-IDE — user-owned AI programming IDE: egna API-nycklar, lokala modeller, MCP, röst, vision, agent.",
+  "license": "MIT",
+  "scripts": {
+    "scaffold": "node scripts/scaffold.mjs",
+    "build": "pnpm -r --workspace-concurrency=1 build",
+    "typecheck": "pnpm -r --no-bail typecheck",
+    "test": "pnpm -r --no-bail --workspace-concurrency=1 test",
+    "e2e": "pnpm --filter @nexus/e2e e2e && node scripts/make_result.mjs",
+    "start": "pnpm --filter @nexus/desktop start",
+    "dev": "pnpm --filter @nexus/desktop dev",
+    "dist": "pnpm --filter @nexus/desktop dist",
+    "ai-service": "pnpm --filter @nexus/ai-service start",
+    "verify:fas0": "bash scripts/verify_fas0.sh",
+    "verify:all": "bash scripts/verify_all.sh",
+    "e2e:only": "pnpm --filter @nexus/e2e e2e",
+    "result": "node scripts/make_result.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vitest": "3.2.4",
+    "@types/node": "24.0.0"
+  }
+}

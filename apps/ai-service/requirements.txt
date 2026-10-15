@@ -1,0 +1,39 @@
+# =====================================================================
+# NEXUS-IDE — ai-service (Python) dependencies.
+# Installeras av scripts/setup_ai_service.sh in i apps/ai-service/.venv
+# (en enda tillåten mil enligt CONVENTIONS.md).
+#
+# Volym/krav i urval:
+#   faster-whisper        STT (Whisper via CTranslate2; CPU-int8 eller CUDA-float16)
+#   piper-tts             TTS (lokal, egna voice-modeller via piper.download_voices)
+#   edge-tts              TTS-reserv (moln, behöver nät)
+#   rapidocr-onnxruntime  OCR (självständiga ONNX-modeller — ingen system-tesseract)
+#   mss                   skärmbild (FAS 6.1)
+#   chromadb              RAG-vektorlager (fallback: inbyggd JSONL-index)
+#   onnxruntime           kör RapidOCR
+# Allt hämtas från PyPI; inga nycklar i denna fil.
+# =====================================================================
+
+# Versionerna nedan är de som faktiskt installerades och testades på denna maskin
+# (Python 3.11.9, Windows 11, win_amd64). Upplåsning: scripts/setup_ai_service.sh
+# accepterar också en lösare profil via NEXUS_AI_PIP_UNPINNED=1.
+
+fastapi==0.143.2
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+pydantic==2.14.1
+python-dotenv==1.2.4
+httpx==0.28.1
+numpy==2.4.6
+pillow==12.3.0
+
+faster-whisper==1.2.1
+piper-tts==1.8.0
+edge-tts==7.3.1
+rapidocr-onnxruntime==1.4.4
+onnxruntime==1.31.0
+mss==10.2.0
+chromadb==1.5.9
+
+# tester
+pytest==9.1.1

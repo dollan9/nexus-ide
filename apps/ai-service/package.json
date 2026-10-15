@@ -1,0 +1,13 @@
+{
+  "name": "@nexus/ai-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Python FastAPI-tjänst för röst (Whisper/Piper), vision (VLM/OCR) och embeddings/RAG.",
+  "license": "MIT",
+  "scripts": {
+    "setup": "bash ../../scripts/setup_ai_service.sh",
+    "start": "bash ../../scripts/start_ai_service.sh",
+    "test": "bash ../../scripts/test_ai_service.sh",
+    "build": "echo 'ai-service: ingen build-step (Python, körs från src)'"
+  }
+}

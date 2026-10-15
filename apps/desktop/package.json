@@ -1,0 +1,35 @@
+{
+  "name": "@nexus/desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Electron-skal: main-process (host+IPC), preload ( säker bro), renderer (Vite+React), ai-service auto-start.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@nexus/host": "workspace:*",
+    "@nexus/core": "workspace:*",
+    "@nexus/ui": "workspace:*",
+    "@nexus/protocol": "workspace:*"
+  },
+  "devDependencies": {
+    "electron": "^44.0.0",
+    "electron-builder": "^26.0.0",
+    "vite": "^6.0.0",
+    "@vitejs/plugin-react": "^4.6.0",
+    "typescript": "~5.9.0",
+    "vitest": "^3.2.4",
+    "@types/node": "^24.0.0",
+    "cross-env": "^10.0.0",
+    "ws": "^8.22.0",
+    "@nexus/host": "workspace:*",
+    "@nexus/ui": "workspace:*",
+    "@nexus/protocol": "workspace:*"
+  }
+}

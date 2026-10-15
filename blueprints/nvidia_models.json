@@ -1,0 +1,631 @@
+{
+  "fetchedAt": "2026-10-15T16:04:12Z",
+  "endpoint": "https://integrate.api.nvidia.com/v1/models",
+  "httpStatus": 200,
+  "authenticated": false,
+  "authenticationProof": "GET https://integrate.api.nvidia.com/v1/models returned HTTP 200 with no Authorization header and no .env loaded. Contrast: an unauthenticated POST to /v1/chat/completions for a catalog-valid model returns HTTP 401 \"Header of type `authorization` was missing\", so the catalog route is genuinely keyless while inference is not. Measured 2026-10-15 (UTC).",
+  "total": 81,
+  "counts": {
+    "coding": 25,
+    "vision": 20,
+    "embed": 8
+  },
+  "classificationBasis": "Subsets are derived from (a) the model id string itself and (b) the model description text on the pages fetched into blueprints/raw/ (build.nvidia.com catalog, NIM Support Matrix). No id in any subset was invented: every entry is asserted to exist in the live /v1/models response before writing this file. A model appearing in `coding` or `vision` is an indication of capability, not a verified benchmark.",
+  "coding": [
+    "bigcode/starcoder2-15b",
+    "deepseek-ai/deepseek-coder-6.7b-instruct",
+    "deepseek-ai/deepseek-v4.1-flash",
+    "google/codegemma-1.1-7b",
+    "google/codegemma-7b",
+    "google/gemma-4-31b-it",
+    "ibm/granite-34b-code-instruct",
+    "ibm/granite-8b-code-instruct",
+    "meta/codellama-70b",
+    "mistralai/codestral-22b-instruct-v0.1",
+    "mistralai/mixtral-8x22b-v0.1",
+    "moonshotai/kimi-k2.6",
+    "nvidia/llama-3.1-nemotron-51b-instruct",
+    "nvidia/llama-3.1-nemotron-70b-instruct",
+    "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "nvidia/nemotron-3-super-120b-a12b",
+    "nvidia/nemotron-3-ultra-550b-a55b",
+    "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "nvidia/nemotron-3.5-super-vl-120b-a12b",
+    "nvidia/nemotron-4-340b-instruct",
+    "nvidia/nemotron-nano-3-30b-a3b",
+    "openai/gpt-oss-20b",
+    "poolside/laguna-xs-2.1",
+    "z-ai/glm-5.3"
+  ],
+  "vision": [
+    "adept/fuyu-8b",
+    "deepseek-ai/deepseek-v4.1-flash",
+    "google/deplot",
+    "meta/llama-3.2-11b-vision-instruct",
+    "meta/llama-3.2-90b-vision-instruct",
+    "meta/muse-glimmer-30b",
+    "microsoft/kosmos-2",
+    "microsoft/phi-3-vision-128k-instruct",
+    "nvidia/ai-synthetic-video-detector",
+    "nvidia/cosmos-reason2-8b",
+    "nvidia/ising-calibration-1.5-31b",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1",
+    "nvidia/llama-nemotron-embed-vl-1b-v2",
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "nvidia/nemotron-3.5-super-vl-120b-a12b",
+    "nvidia/neva-22b",
+    "nvidia/nvclip",
+    "nvidia/vila",
+    "stepfun-ai/step-5-preview",
+    "z-ai/glm-5.3-flash"
+  ],
+  "embed": [
+    "nvidia/embed-qa-4",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1",
+    "nvidia/llama-3.2-nv-embedqa-1b-v1",
+    "nvidia/llama-nemotron-embed-vl-1b-v2",
+    "nvidia/nemotron-3-embed-1b",
+    "nvidia/nv-embedqa-mistral-7b-v2",
+    "nvidia/nvclip",
+    "snowflake/arctic-embed-l"
+  ],
+  "embedNotes": [
+    "The user spec expected nv-embedqa, snowflake-arctic-embed, bert and e5 families. Only nv-embedqa and snowflake/arctic-embed-l are present in the live catalog. There is NO bert and NO e5 model id in this response.",
+    "POST https://integrate.api.nvidia.com/v1/embeddings with model \"nvidia/nv-embedqa-e5-v5\" returned HTTP 410: \"The model nvidia/nv-embedqa-e5-v5 has reached its end of life on 2026-08-25T09:00:00Z and is no longer available.\" It is therefore absent from /v1/models. Do not wire NEXUS embeddings to it."
+  ],
+  "codingExcludedOnPurpose": [
+    "nvidia/llama-3.1-nemoguard-8b-content-safety",
+    "nvidia/llama-3.1-nemoguard-8b-topic-control",
+    "nvidia/llama-3.1-nemotron-safety-guard-8b-v3",
+    "nvidia/nemotron-3.5-content-safety",
+    "nvidia/nemotron-parse",
+    "nvidia/nemotron-parse-2.0",
+    "nvidia/nemotron-4-340b-reward",
+    "nvidia/llama3-chatqa-1.5-70b",
+    "nvidia/riva-translate-4b-instruct",
+    "nvidia/riva-translate-4b-instruct-v2"
+  ],
+  "fallback": [
+    {
+      "id": "meta/llama-3.1-70b-instruct",
+      "existsInCatalog": false,
+      "closestCatalogIds": [
+        "meta/llama-3.2-90b-vision-instruct",
+        "meta/llama-3.2-11b-vision-instruct",
+        "nvidia/llama-3.1-nemotron-70b-instruct"
+      ]
+    },
+    {
+      "id": "meta/llama-3.3-70b-instruct",
+      "existsInCatalog": false,
+      "closestCatalogIds": [
+        "meta/llama-3.2-90b-vision-instruct",
+        "meta/llama-3.2-11b-vision-instruct",
+        "nvidia/llama-3.1-nemotron-70b-instruct"
+      ]
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "existsInCatalog": true
+    },
+    {
+      "id": "mistralai/mixtral-8x22b-instruct-v0.1",
+      "existsInCatalog": false,
+      "closestCatalogIds": [
+        "mistralai/mistral-7b-instruct-v0.3",
+        "mistralai/codestral-22b-instruct-v0.1",
+        "mistralai/mixtral-8x22b-v0.1"
+      ]
+    },
+    {
+      "id": "qwen/qwen2.5-coder-32b-instruct",
+      "existsInCatalog": false,
+      "closestCatalogIds": [
+        "ibm/granite-8b-code-instruct",
+        "deepseek-ai/deepseek-coder-6.7b-instruct",
+        "ibm/granite-34b-code-instruct"
+      ]
+    },
+    {
+      "id": "deepseek-ai/deepseek-r1",
+      "existsInCatalog": false,
+      "closestCatalogIds": [
+        "deepseek-ai/deepseek-v4.1-flash",
+        "deepseek-ai/deepseek-coder-6.7b-instruct"
+      ]
+    }
+  ],
+  "fallbackSummary": "1 of 6 ids in the user hand-list exist verbatim in the live catalog. Five of the six are stale. NEXUS must resolve its default list against /v1/models at runtime instead of hardcoding these ids.",
+  "catalog": {
+    "object": "list",
+    "data": [
+      {
+        "id": "01-ai/yi-large",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "01-ai"
+      },
+      {
+        "id": "adept/fuyu-8b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "adept"
+      },
+      {
+        "id": "ai21labs/jamba-1.5-large-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "ai21labs"
+      },
+      {
+        "id": "aisingapore/sea-lion-7b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "aisingapore"
+      },
+      {
+        "id": "bigcode/starcoder2-15b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "bigcode"
+      },
+      {
+        "id": "databricks/dbrx-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "databricks"
+      },
+      {
+        "id": "deepseek-ai/deepseek-coder-6.7b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "deepseek-ai"
+      },
+      {
+        "id": "deepseek-ai/deepseek-v4.1-flash",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "deepseek-ai"
+      },
+      {
+        "id": "google/codegemma-1.1-7b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "google/codegemma-7b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "google/deplot",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "google/diffusiongemma-26b-a4b-it",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "google/gemma-2b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "google/gemma-3-12b-it",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "google/gemma-3-4b-it",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "google/gemma-4-31b-it",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "google/recurrentgemma-2b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "google"
+      },
+      {
+        "id": "ibm/granite-3.0-3b-a800m-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "ibm"
+      },
+      {
+        "id": "ibm/granite-3.0-8b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "ibm"
+      },
+      {
+        "id": "ibm/granite-34b-code-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "ibm"
+      },
+      {
+        "id": "ibm/granite-8b-code-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "ibm"
+      },
+      {
+        "id": "meta/codellama-70b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "meta"
+      },
+      {
+        "id": "meta/llama-3.2-11b-vision-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "meta"
+      },
+      {
+        "id": "meta/llama-3.2-90b-vision-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "meta"
+      },
+      {
+        "id": "meta/llama-guard-4-12b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "meta"
+      },
+      {
+        "id": "meta/llama2-70b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "meta"
+      },
+      {
+        "id": "meta/muse-glimmer-30b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "meta"
+      },
+      {
+        "id": "microsoft/kosmos-2",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "microsoft"
+      },
+      {
+        "id": "microsoft/phi-3-vision-128k-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "microsoft"
+      },
+      {
+        "id": "microsoft/phi-3.5-moe-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "microsoft"
+      },
+      {
+        "id": "mistralai/codestral-22b-instruct-v0.1",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "mistralai"
+      },
+      {
+        "id": "mistralai/mistral-7b-instruct-v0.3",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "mistralai"
+      },
+      {
+        "id": "mistralai/mistral-large",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "mistralai"
+      },
+      {
+        "id": "mistralai/mistral-large-2-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "mistralai"
+      },
+      {
+        "id": "mistralai/mixtral-8x22b-v0.1",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "mistralai"
+      },
+      {
+        "id": "moonshotai/kimi-k2.6",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "moonshotai"
+      },
+      {
+        "id": "nv-mistralai/mistral-nemo-12b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nv-mistralai"
+      },
+      {
+        "id": "nvidia/ai-synthetic-video-detector",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/cosmos-reason2-8b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/embed-qa-4",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/ising-calibration-1.5-31b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-3.1-nemoguard-8b-content-safety",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-3.1-nemoguard-8b-topic-control",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-3.1-nemotron-51b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-3.1-nemotron-70b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-3.1-nemotron-safety-guard-8b-v3",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-3.2-nv-embedqa-1b-v1",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama-nemotron-embed-vl-1b-v2",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/llama3-chatqa-1.5-70b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/mistral-nemo-minitron-8b-8k-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-3-embed-1b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-3-super-120b-a12b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-3-ultra-550b-a55b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-3.5-content-safety",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-4-340b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-4-340b-reward",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-nano-3-30b-a3b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-parse",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nemotron-parse-2.0",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/neva-22b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nv-embedqa-mistral-7b-v2",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/nvclip",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/riva-translate-4b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/riva-translate-4b-instruct-v2",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "nvidia/vila",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "nvidia"
+      },
+      {
+        "id": "openai/gpt-oss-20b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "openai"
+      },
+      {
+        "id": "poolside/laguna-xs-2.1",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "poolside"
+      },
+      {
+        "id": "snowflake/arctic-embed-l",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "snowflake"
+      },
+      {
+        "id": "stepfun-ai/step-5-preview",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "stepfun-ai"
+      },
+      {
+        "id": "writer/palmyra-creative-122b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "writer"
+      },
+      {
+        "id": "writer/palmyra-fin-70b-32k",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "writer"
+      },
+      {
+        "id": "writer/palmyra-med-70b",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "writer"
+      },
+      {
+        "id": "writer/palmyra-med-70b-32k",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "writer"
+      },
+      {
+        "id": "z-ai/glm-5.3",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "z-ai"
+      },
+      {
+        "id": "z-ai/glm-5.3-flash",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "z-ai"
+      },
+      {
+        "id": "zyphra/zamba2-7b-instruct",
+        "object": "model",
+        "created": 735790403,
+        "owned_by": "zyphra"
+      }
+    ]
+  }
+}

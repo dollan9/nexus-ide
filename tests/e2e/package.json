@@ -1,0 +1,27 @@
+{
+  "name": "@nexus/e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "P0-acceptanssvit T1-T8: Playwright mot byggd renderer + verklig host-process over WebSocket.",
+  "license": "MIT",
+  "scripts": {
+    "build": "node -e \"console.log('e2e: kör via playwright, eget build-steg behövs ej')\"",
+    "test": "playwright test --list > /dev/null && echo 'e2e-uppställning OK (kör pnpm e2e för att köra sviten)'",
+    "e2e": "playwright test",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@nexus/protocol": "workspace:*",
+    "@nexus/host": "workspace:*",
+    "@nexus/core": "workspace:*",
+    "@nexus/providers": "workspace:*",
+    "@nexus/mcp-client": "workspace:*",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.0",
+    "@types/node": "^24.0.0",
+    "playwright": "^1.55.0",
+    "typescript": "~5.9.0"
+  }
+}

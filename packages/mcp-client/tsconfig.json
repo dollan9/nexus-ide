@@ -1,0 +1,18 @@
+{
+  // @nexus/mcp-client — Byggs till CommonJS (dist/, main: dist/index.js) som alla
+  // paket i CONVENTIONS.md. module/moduleResolution ar NodeNext i stallet for
+  // CommonJS/Node, for att @modelcontextprotocol/sdk endast exponerar sina
+  // dotter-vagar (/client/stdio.js osv) via sin exports-map — "Node" (node10)
+  // kan inte losa dem. Eftersom package.json inte har "type" skins CJS ut,
+  // exakt som resten av monorepos, och runtime-testet kraver require()-inlapning.
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "test"]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@nexus/core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agentkärna: ReAct/tool-loop, planering, minne, checkpoints, sök/replace, config, logger, RAG-klient.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@nexus/protocol": "workspace:*",
+    "@nexus/providers": "workspace:*",
+    "@nexus/mcp-client": "workspace:*",
+    "@nexus/voice": "workspace:*",
+    "@nexus/vision": "workspace:*",
+    "simple-git": "^4.0.0",
+    "diff": "^8.0.0",
+    "chokidar": "^4.0.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.0",
+    "vitest": "^3.2.4",
+    "@types/node": "^24.0.0",
+    "@types/diff": "^7.0.0"
+  }
+}
